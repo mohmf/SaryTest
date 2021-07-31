@@ -14,6 +14,9 @@ urlpatterns = [
     path('questions/answers/', views.AnswerList.as_view()),
     path('questions/answers/<int:pk>', views.AnswerDetail.as_view()),
 
+    path('questions/answers/comments/', views.AnswerCommentList.as_view()),
+    path('questions/answers/comments/<int:pk>', views.AnswerCommentDetail.as_view()),
+
     path('tags/', views.TagList.as_view()),
     path('tags/<int:pk>', views.TagDetail.as_view())
 ]

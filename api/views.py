@@ -1,5 +1,5 @@
 from rest_framework import generics
-from .models import Answer, Question,QuestionComment,Tag
+from .models import Answer, Question,QuestionComment,Tag,AnswerComment
 from . import serializers
 from django.contrib.auth.models import User
 
@@ -27,6 +27,15 @@ class QuestionCommentList(generics.ListCreateAPIView):
 class QuestionCommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = QuestionComment.objects.all()
     serializer_class = serializers.QuestionCommentSerializer
+
+class AnswerCommentList(generics.ListCreateAPIView):
+    queryset = AnswerComment.objects.all()
+    serializer_class = serializers.AnswerCommentSerializer
+
+
+class AnswerCommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AnswerComment.objects.all()
+    serializer_class = serializers.AnswerCommentSerializer    
 
 class AnswerList(generics.ListCreateAPIView):
     queryset = Answer.objects.all()

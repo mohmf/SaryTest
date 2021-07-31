@@ -15,6 +15,9 @@ class Question(models.Model):
 
 class QuestionComment(Comment):
     question = models.ForeignKey('Question', related_name='question_comments', on_delete=models.CASCADE)
+
+class AnswerComment(Comment):
+    answer = models.ForeignKey('Answer', related_name='answer_comments', on_delete=models.CASCADE)
     
 class Answer(models.Model):
     body = models.TextField(blank=False)

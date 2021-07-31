@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Question,QuestionComment,Answer,Tag
+from .models import Question,QuestionComment,Answer,Tag,AnswerComment
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,6 +18,13 @@ class QuestionCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionComment
         fields = ['pk','body', 'user','question']
+
+class AnswerCommentSerializer(serializers.ModelSerializer):
+    # user = serializers.ReadOnlyField(source='user.username')
+
+    class Meta:
+        model = AnswerComment
+        fields = ['pk','body', 'user','answer']
 
 class AnswerSerializer(serializers.ModelSerializer):
     # user = serializers.ReadOnlyField(source='user.username')
