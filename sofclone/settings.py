@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'forum',
         'USER': 'forum',
         'PASSWORD': 'forum',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '',
     }
 }
