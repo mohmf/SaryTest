@@ -1,28 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.22.0 (955b78124)
-  creationTimestamp: null
   labels:
-    io.kompose.service: db
+    app: db
   name: db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: db
-  strategy:
-    type: Recreate
+      app: db
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.22.0 (955b78124)
-      creationTimestamp: null
       labels:
-        io.kompose.service: db
+        app: db
     spec:
       containers:
         - env:
@@ -36,13 +26,4 @@ spec:
           name: db
           ports:
             - containerPort: 5432
-          resources: {}
-          volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: db-claim0
       restartPolicy: Always
-      volumes:
-        - name: db-claim0
-          persistentVolumeClaim:
-            claimName: db-claim0
-status: {}
